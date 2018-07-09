@@ -1,58 +1,26 @@
-# FlycoTabLayout
-[![Android Arsenal](https://img.shields.io/badge/Android%20Arsenal-FlycoTabLayout-green.svg?style=true)](https://android-arsenal.com/details/1/2756)
-#### [中文版](https://github.com/H07000223/FlycoTabLayout/blob/master/README_CN.md)
-An Android TabLayout Lib has 3 kinds of TabLayout at present.
-
-* SlidingTabLayout: deeply modified from [PagerSlidingTabStrip](https://github.com/jpardogo/PagerSlidingTabStrip).
-    * new added attribute
-    * new added kinds of indicators
-    * new added unread msg tip
-    * new added method for convenience
-    
-    ```java
-        /** no need to set titles in adapter */
-        public void setViewPager(ViewPager vp, String[] titles)
-        
-        /** no need to initialize even adapter */
-        public void setViewPager(ViewPager vp, String[] titles, FragmentActivity fa, ArrayList<Fragment> fragments) 
-    ```
-
-* CommonTabLayout:unlike SlidingTabLayout's dependence on ViewPager,it is a tabLayout without dependence on ViewPager and 
-can be used freely with other widgets together.
-    * support kinds of indicators and indicator animation
-    * support unread msg tip
-    * support icon and icon gravity.
-    * new added method for convenience
-    
-    ```java
-        /** support switch fragments itself */
-        public void setTabData(ArrayList<CustomTabEntity> tabEntitys, FragmentManager fm, int containerViewId, ArrayList<Fragment> fragments)
-    ```
-
-* SegmentTabLayout
-
-## Demo
-![](https://github.com/H07000223/FlycoTabLayout/blob/master/preview_1.gif)
-
-![](https://github.com/H07000223/FlycoTabLayout/blob/master/preview_2.gif)
-
-![](https://github.com/H07000223/FlycoTabLayout/blob/master/preview_3.gif)
-
-
+# DKTabLayout
+Forked from [FlycoTabLayout](https://github.com/H07000223/FlycoTabLayout).
+[![](https://www.jitpack.io/v/dueeeke/dk-tablayout.svg)](https://www.jitpack.io/#dueeeke/dk-tablayout)
+#### [中文版](https://github.com/dueeeke/dk-tablayout/blob/master/README_CN.md)
 
 ## Gradle
 
 ```groovy
-	allprojects {
-		repositories {
-			maven { url 'https://jitpack.io' }
-		}
-	}
-	
-	dependencies {
-        implementation 'com.github.dueeeke:DKTabLayout:1.0'
+    allprojects {
+        repositories {
+            maven { url 'https://jitpack.io' }
+        }
+    }
+
+    dependencies {
+        implementation 'com.github.dueeeke:dk-tablayout:1.0'
     }
 ```
+
+## Demo
+|SlidingTabLayout|CommonTabLayout|SegmentTabLayout|
+|:---:|:---:|:---:|
+![](https://github.com/dueeeke/dk-tablayout/blob/master/preview_1.gif)|![](https://github.com/dueeeke/dk-tablayout/blob/master/preview_2.gif)|![](https://github.com/dueeeke/dk-tablayout/blob/master/preview_3.gif)
 
 ## Attributes
 
@@ -77,9 +45,10 @@ can be used freely with other widgets together.
 | tl_tab_padding |dimension| set tab paddingLeft and paddingRight
 | tl_tab_space_equal |boolean| set tab space equal
 | tl_tab_width |dimension| set tab width
-| tl_textsize |dimension| set text size
+| tl_textSize |dimension| set text size
+| tl_textSelectSize |dimension| set text select size
 | tl_textSelectColor |color| set text select color
-| tl_textUnselectColor |color|  set text unselect color
+| tl_textUnselectedColor |color|  set text unselect color
 | tl_textBold |boolean| set text is bold 
 | tl_iconWidth |dimension| set icon width(only for CommonTabLayout)
 | tl_iconHeight |dimension|set icon height(only for CommonTabLayout)
@@ -90,10 +59,3 @@ can be used freely with other widgets together.
 | tl_indicator_anim_duration |integer| set indicator animation duration(only for CommonTabLayout)
 | tl_indicator_bounce_enable |boolean| set indicator aniamtion with bounce effect(only for CommonTabLayout)
 | tl_indicator_width_equal_title |boolean| set indicator width same as text(only for SlidingTabLayout)
-
-## Dependence
-*   [NineOldAndroids](https://github.com/JakeWharton/NineOldAndroids)
-*   [FlycoRoundView](https://github.com/H07000223/FlycoRoundView)
-
-## Thanks
-*   [PagerSlidingTabStrip](https://github.com/jpardogo/PagerSlidingTabStrip)

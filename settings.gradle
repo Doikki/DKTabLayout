@@ -1,1 +1,1 @@
-include ':app', ':DKTabLayout'
+include ':app', ':library'

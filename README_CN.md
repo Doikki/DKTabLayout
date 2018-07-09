@@ -1,56 +1,26 @@
-# FlycoTabLayout
-[![Android Arsenal](https://img.shields.io/badge/Android%20Arsenal-FlycoTabLayout-green.svg?style=true)](https://android-arsenal.com/details/1/2756)
-
-一个Android TabLayout库,目前有3个TabLayout
-
-* SlidingTabLayout:参照[PagerSlidingTabStrip](https://github.com/jpardogo/PagerSlidingTabStrip)进行大量修改.
-    * 新增部分属性
-    * 新增支持多种Indicator显示器
-    * 新增支持未读消息显示
-    * 新增方法for懒癌患者
-    
-    ```java
-        /** 关联ViewPager,用于不想在ViewPager适配器中设置titles数据的情况 */
-        public void setViewPager(ViewPager vp, String[] titles)
-        
-        /** 关联ViewPager,用于连适配器都不想自己实例化的情况 */
-        public void setViewPager(ViewPager vp, String[] titles, FragmentActivity fa, ArrayList<Fragment> fragments) 
-    ```
-
-* CommonTabLayout:不同于SlidingTabLayout对ViewPager依赖,它是一个不依赖ViewPager可以与其他控件自由搭配使用的TabLayout.
-    * 支持多种Indicator显示器,以及Indicator动画
-    * 支持未读消息显示
-    * 支持Icon以及Icon位置
-    * 新增方法for懒癌患者
-    
-    ```java
-        /** 关联数据支持同时切换fragments */
-        public void setTabData(ArrayList<CustomTabEntity> tabEntitys, FragmentManager fm, int containerViewId, ArrayList<Fragment> fragments)
-    ```
-
-* SegmentTabLayout
-
-## Demo
-![](https://github.com/H07000223/FlycoTabLayout/blob/master/preview_1.gif)
-
-![](https://github.com/H07000223/FlycoTabLayout/blob/master/preview_2.gif)
-
-![](https://github.com/H07000223/FlycoTabLayout/blob/master/preview_3.gif)
-
+# DKTabLayout
+Forked from [FlycoTabLayout](https://github.com/H07000223/FlycoTabLayout).
+[![](https://www.jitpack.io/v/dueeeke/dk-tablayout.svg)](https://www.jitpack.io/#dueeeke/dk-tablayout)
+#### [中文版](https://github.com/dueeeke/dk-tablayout/blob/master/README_CN.md)
 
 ## Gradle
 
 ```groovy
-	allprojects {
-		repositories {
-			maven { url 'https://jitpack.io' }
-		}
-	}
-	
-	dependencies {
-        implementation 'com.github.dueeeke:DKTabLayout:1.0'
+    allprojects {
+        repositories {
+            maven { url 'https://jitpack.io' }
+        }
+    }
+
+    dependencies {
+        implementation 'com.github.dueeeke:dk-tablayout:1.0'
     }
 ```
+
+## Demo
+|SlidingTabLayout|CommonTabLayout|SegmentTabLayout|
+|:---:|:---:|:---:|
+![](https://github.com/dueeeke/dk-tablayout/blob/master/preview_1.gif)|![](https://github.com/dueeeke/dk-tablayout/blob/master/preview_2.gif)|![](https://github.com/dueeeke/dk-tablayout/blob/master/preview_3.gif)
 
 ## Attributes
 
@@ -75,9 +45,10 @@
 | tl_tab_padding |dimension| 设置tab的paddingLeft和paddingRight
 | tl_tab_space_equal |boolean| 设置tab大小等分
 | tl_tab_width |dimension| 设置tab固定大小
-| tl_textsize |dimension| 设置字体大小
+| tl_textSize |dimension| 设置字体大小
+| tl_textSelectSize |dimension| 设置选中时的字体大小
 | tl_textSelectColor |color| 设置字体选中颜色
-| tl_textUnselectColor |color| 设置字体未选中颜色
+| tl_textUnselectedColor |color| 设置字体未选中颜色
 | tl_textBold |boolean| 设置字体加粗
 | tl_iconWidth |dimension| 设置icon宽度(仅支持CommonTabLayout)
 | tl_iconHeight |dimension|设置icon高度(仅支持CommonTabLayout)
@@ -88,10 +59,3 @@
 | tl_indicator_anim_duration |integer| 设置显示器动画时间(only for CommonTabLayout)
 | tl_indicator_bounce_enable |boolean| 设置显示器支持动画回弹效果(only for CommonTabLayout)
 | tl_indicator_width_equal_title |boolean| 设置显示器与标题一样长(only for SlidingTabLayout)
-
-## Dependence
-*   [NineOldAndroids](https://github.com/JakeWharton/NineOldAndroids)
-*   [FlycoRoundView](https://github.com/H07000223/FlycoRoundView)
-
-## Thanks
-*   [PagerSlidingTabStrip](https://github.com/jpardogo/PagerSlidingTabStrip)
