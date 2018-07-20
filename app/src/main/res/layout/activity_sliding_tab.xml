@@ -122,6 +122,14 @@
                 tl:tl_indicator_margin_right="2dp"
                 tl:tl_indicator_style="BLOCK"/>
 
+            <com.dueeeke.tablayout.SlidingTabLayout
+                android:id="@+id/tl_11"
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:background="#00c853"
+                tl:tl_textSelectSize="16sp"
+                tl:tl_textSize="14sp"/>
+
         </LinearLayout>
 
         <android.support.v4.view.ViewPager
