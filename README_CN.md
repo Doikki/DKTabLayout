@@ -14,7 +14,7 @@ Forked from [FlycoTabLayout](https://github.com/H07000223/FlycoTabLayout).
     }
 
     dependencies {
-        implementation 'com.github.dueeeke:dk-tablayout:1.0'
+        implementation 'com.github.dueeeke:dk-tablayout:1.0.1'
     }
 ```
 
