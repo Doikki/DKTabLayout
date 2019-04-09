@@ -1,18 +1,12 @@
 # DKTabLayout
 Forked from [FlycoTabLayout](https://github.com/H07000223/FlycoTabLayout).
 
-[![](https://www.jitpack.io/v/dueeeke/dk-tablayout.svg)](https://www.jitpack.io/#dueeeke/dk-tablayout)
+[![Download](https://api.bintray.com/packages/dueeeke/maven/dk-tablayout/images/download.svg)](https://bintray.com/dueeeke/maven/dk-tablayout/_latestVersion)
 #### [中文版](https://github.com/dueeeke/dk-tablayout/blob/master/README_CN.md)
 
 ## Gradle
 
 ```groovy
-    allprojects {
-        repositories {
-            maven { url 'https://jitpack.io' }
-        }
-    }
-
     dependencies {
         implementation 'com.github.dueeeke:dk-tablayout:1.0.1'
     }

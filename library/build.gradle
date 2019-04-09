@@ -1,6 +1,5 @@
 apply plugin: 'com.android.library'
-apply plugin: 'com.github.dcendents.android-maven'
-group='com.github.dueeeke'
+apply plugin: 'com.novoda.bintray-release'
 
 android {
     compileSdkVersion 25
@@ -22,5 +21,14 @@ android {
 
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
-    implementation 'com.android.support:support-v4:25.4.0'
+    compileOnly 'com.android.support:support-v4:25.4.0'
+}
+
+publish {
+    userOrg = 'dueeeke'
+    groupId = 'com.github.dueeeke'
+    artifactId = 'dk-tablayout'
+    publishVersion = '1.0.1'
+    desc = 'A TabLayout for Android.'
+    website = 'https://github.com/dueeeke/dk-tablayout'
 }
