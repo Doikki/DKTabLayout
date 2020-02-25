@@ -44,8 +44,6 @@ public class SlidingTabLayout extends HorizontalScrollView implements ViewPager.
     private int mTabCount;
     /** 用于绘制显示器 */
     private Rect mIndicatorRect = new Rect();
-    /** 用于实现滚动居中 */
-    private Rect mTabRect = new Rect();
     private GradientDrawable mIndicatorDrawable = new GradientDrawable();
 
     private Paint mRectPaint = new Paint(Paint.ANTI_ALIAS_FLAG);
@@ -94,7 +92,6 @@ public class SlidingTabLayout extends HorizontalScrollView implements ViewPager.
     private boolean mTextAllCaps;
     private float mTextSelectSize;
 
-    private int mLastScrollX;
     private int mHeight;
     private boolean mSnapOnTabClick;
 
@@ -343,26 +340,15 @@ public class SlidingTabLayout extends HorizontalScrollView implements ViewPager.
         if (mTabCount <= 0) {
             return;
         }
-
-        int offset = (int) (mCurrentPositionOffset * mTabsContainer.getChildAt(mCurrentTab).getWidth());
-        /**当前Tab的left+当前Tab的Width乘以positionOffset*/
-        int newScrollX = mTabsContainer.getChildAt(mCurrentTab).getLeft() + offset;
-
-        if (mCurrentTab > 0 || offset > 0) {
-            /**HorizontalScrollView移动到当前tab,并居中*/
-            newScrollX -= getWidth() / 2 - getPaddingLeft();
-            calcIndicatorRect();
-            newScrollX += ((mTabRect.right - mTabRect.left) / 2);
-        }
-
-        if (newScrollX != mLastScrollX) {
-            mLastScrollX = newScrollX;
-            /** scrollTo（int x,int y）:x,y代表的不是坐标点,而是偏移量
-             *  x:表示离起始位置的x水平方向的偏移量
-             *  y:表示离起始位置的y垂直方向的偏移量
-             */
-            scrollTo(newScrollX, 0);
-        }
+        View nextChild = mCurrentTab + 1 < mTabsContainer.getChildCount()
+                ? mTabsContainer.getChildAt(mCurrentTab + 1)
+                : null;
+        View selectedChild = mTabsContainer.getChildAt(mCurrentTab);
+        int selectedWidth = selectedChild.getWidth();
+        int nextWidth = nextChild == null ? 0 : nextChild.getWidth();
+        int scrollBase = selectedChild.getLeft() + (selectedWidth / 2) - (getWidth() / 2);
+        int scrollOffset = (int) ((selectedWidth + nextWidth) * 0.5f * mCurrentPositionOffset);
+        scrollTo(scrollOffset  + scrollBase, 0);
     }
 
     private void updateTabSelection(int position) {
@@ -421,9 +407,6 @@ public class SlidingTabLayout extends HorizontalScrollView implements ViewPager.
             mIndicatorRect.left = (int) (left + margin - 1);
             mIndicatorRect.right = (int) (right - margin - 1);
         }
-
-        mTabRect.left = (int) left;
-        mTabRect.right = (int) right;
 
         if (mIndicatorWidth < 0) {   //indicatorWidth小于0时,原jpardogo's PagerSlidingTabStrip
 
