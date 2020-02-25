@@ -8,7 +8,7 @@ Forked from [FlycoTabLayout](https://github.com/H07000223/FlycoTabLayout).
 
 ```groovy
     dependencies {
-        implementation 'com.github.dueeeke:dk-tablayout:1.0.1'
+        implementation 'com.github.dueeeke:dk-tablayout:1.0.2'
     }
 ```
 
